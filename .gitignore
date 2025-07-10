@@ -37,3 +37,8 @@ Thumbs.db
 # Scripts
 publica.sh
 rebuild-compose.sh
+
+# .Git
+git-interno.git
+
+git-externo.git
