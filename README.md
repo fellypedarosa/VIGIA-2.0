@@ -1,7 +1,11 @@
 # Guia do Usuário - Sistema de Monitoramento Vigia
 
 Bem-vindo ao guia do usuário do Sistema de Monitoramento Vigia. Este documento explica as principais funcionalidades do sistema e como utilizá-lo para monitorar ambientes e receber alertas de movimento.
-
+---
+![Interface do Vigia](https://github.com/user-attachments/assets/df646458-473f-4f24-bf5c-2d9deff3da14)
+| SMTP config | Credenciais config |
+| :------: | :------: |
+| ![Configuração de e-mail](https://github.com/user-attachments/assets/4ed84a6f-d83a-4ce7-b12d-6eb7123020de) | ![Gerenciador de credenciais](https://github.com/user-attachments/assets/299593cb-c9d4-4b6c-abb2-67ad2e115222) |
 ---
 
 ## Primeiros Passos Rápidos para Desenvolvedores
