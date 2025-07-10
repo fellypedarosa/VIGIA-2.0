@@ -1,0 +1,39 @@
+# Dependências do Node.js
+node_modules/
+
+# Arquivos de build do frontend
+dist/
+.vite/
+
+# Arquivos de ambiente
+.env
+.env.local
+
+# Ambiente do backend
+vigia-backend/.env
+vigia-backend/.env.local
+vigia-backend/config.json
+# Banco de dados e dependências do backend
+vigia-backend/vigia.db
+vigia-backend/venv/
+vigia-backend/.venv/
+vigia-backend/node_modules/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+bun.lockb
+
+# Ambiente virtual do Python
+venv/
+__pycache__/
+*.pyc
+
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Scripts
+publica.sh
+rebuild-compose.sh

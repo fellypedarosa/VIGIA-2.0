@@ -1,0 +1,45 @@
+services:
+  backend:
+    build:
+      context: ./vigia-backend
+    ports:
+      - "5000:5000"
+    volumes:
+      # Mapeia o diretório do código da aplicação do host para o container
+      # O arquivo vigia.db será criado dentro deste diretório no host e acessível em /app/vigia.db no container
+      - ./vigia-backend:/app
+    devices:
+      # Mapeia o dispositivo da webcam do host para o container.
+      # ATENÇÃO: Você pode precisar ajustar '/dev/video0' para o caminho correto da sua webcam no sistema host.
+      # Em alguns sistemas, pode ser necessário adicionar 'privileged: true' ou configurar permissões de usuário/grupo.
+      - /dev/video0:/dev/video0
+    # Mantendo privileged: true para diagnóstico (NÃO USAR EM PRODUÇÃO)
+    privileged: true
+    env_file:
+      - ./vigia-backend/.env
+    environment:
+      # Certifique-se de que não há valores 'null' aqui
+      - PYTHONUNBUFFERED=1
+      # Adicione outras variáveis de ambiente se necessário
+    container_name: vigia-backend
+    restart: unless-stopped
+    networks:
+      - vigia
+
+  frontend:
+    build:
+      context: ./vigia-frontend
+      args:
+        # Passa o valor diretamente como argumento de build para o frontend
+        VITE_BACKEND_URL: http://backend:5000
+    ports:
+      - "8597:80"
+    depends_on:
+      - backend
+    container_name: vigia-frontend
+    restart: unless-stopped
+    networks:
+      - vigia
+networks:
+  vigia:
+    external: true
